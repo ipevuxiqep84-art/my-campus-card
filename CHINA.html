@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【成都校区】四年通信费用测评报告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #0a0c14;
+            color: #ffffff;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        /* 抽象风格背景系统 */
+        .bg-effects {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0a0a12 0%, #1a0a1a 50%, #0a0a12 100%);
+        }
+        
+        .bg-effects::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(255,0,255,0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 70% 60%, rgba(0,255,255,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(255,255,0,0.1) 0%, transparent 45%);
+            animation: bgPulse 8s ease-in-out infinite;
+        }
+        
+        .bg-effects::after {
+            content: '';
+            position: absolute;
+            top: -100%; left: -100%;
+            width: 300%; height: 300%;
+            background: 
+                conic-gradient(from 0deg at 50% 50%, 
+                    transparent 0deg, 
+                    rgba(255,0,255,0.08) 60deg, 
+                    transparent 120deg,
+                    rgba(0,255,255,0.06) 180deg,
+                    transparent 240deg,
+                    rgba(255,255,0,0.08) 300deg,
+                    transparent 360deg);
+            animation: bgRotate 20s linear infinite;
+        }
+        
+        @keyframes bgPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+        
+        @keyframes bgRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 故障艺术扫描线 */
+        .bg-scanline {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 3px,
+                rgba(255,0,255,0.03) 3px,
+                rgba(255,0,255,0.03) 6px
+            );
+            animation: scanlineMove 10s linear infinite;
+        }
+        
+        @keyframes scanlineMove {
+            from { transform: translateY(0); }
+            to { transform: translateY(6px); }
+        }
+        
+        .bg-particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255,255,0,0.8);
+            border-radius: 50%;
+            animation: particleFloat 12s infinite;
+            box-shadow: 0 0 10px rgba(255,255,0,0.8);
+        }
+        
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+        
+        /* 故障艺术文字效果 */
+        .glitch {
+            position: relative;
+            animation: glitch-skew 1s infinite linear alternate-reverse;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00ff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00ffff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(12px, 9999px, 52px, 0); }
+            20% { clip: rect(65px, 9999px, 100px, 0); }
+            40% { clip: rect(25px, 9999px, 35px, 0); }
+            60% { clip: rect(85px, 9999px, 95px, 0); }
+            80% { clip: rect(45px, 9999px, 60px, 0); }
+            100% { clip: rect(15px, 9999px, 30px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            20% { clip: rect(15px, 9999px, 30px, 0); }
+            40% { clip: rect(85px, 9999px, 95px, 0); }
+            60% { clip: rect(25px, 9999px, 35px, 0); }
+            80% { clip: rect(12px, 9999px, 52px, 0); }
+            100% { clip: rect(45px, 9999px, 60px, 0); }
+        }
+        
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            10% { transform: skew(-2deg); }
+            20% { transform: skew(2deg); }
+            30% { transform: skew(0deg); }
+            100% { transform: skew(0deg); }
+        }
+        
+        /* 彩虹渐变文字 */
+        .rainbow-text {
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s linear infinite;
+        }
+        
+        @keyframes rainbow {
+            to { background-position: 200% center; }
+        }
+        
+        /* 弹跳动画 */
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* 旋转动画 */
+        .spin {
+            animation: spin 3s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 震动效果 */
+        .shake {
+            animation: shake 0.5s infinite;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        /* 脉冲发光 */
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255,0,255,0.5), 0 0 40px rgba(255,0,255,0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255,0,255,0.8), 0 0 80px rgba(255,0,255,0.5);
+                transform: scale(1.05);
+            }
+        }
+        
+        /* 闪电边框 */
+        .lightning-border {
+            position: relative;
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            animation: lightning 2s ease infinite;
+        }
+        
+        @keyframes lightning {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* 导航 */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(10,12,20,0.95), transparent);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s linear infinite;
+        }
+        
+        /* 屏幕通用 */
+        .screen {
+            min-height: 100vh;
+            padding: 120px 80px 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* 第一屏：抽象iPhone对比 - 城市夜景背景 */
+        #screen1 {
+            background: 
+                linear-gradient(180deg, rgba(10,10,20,0.7) 0%, rgba(10,10,20,0.5) 50%, rgba(10,10,20,0.8) 100%),
+                url('city-night.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            letter-spacing: 5px;
+            animation: badgePulse 1s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(255,0,255,0.5);
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1) rotate(-2deg); box-shadow: 0 0 30px rgba(255,0,255,0.5); }
+            50% { transform: scale(1.1) rotate(2deg); box-shadow: 0 0 60px rgba(0,255,255,0.8); }
+        }
+        
+        .main-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 60px;
+            letter-spacing: 3px;
+        }
+        
+        /* iPhone对比 - 抽象风格 */
+        .iphone-compare {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .iphone-box {
+            background: rgba(255,255,255,0.03);
+            border: 3px solid transparent;
+            border-radius: 40px;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: borderRotate 3s linear infinite;
+        }
+        
+        .iphone-box.expensive {
+            background: linear-gradient(135deg, rgba(255,0,0,0.1), rgba(255,0,255,0.1));
+            box-shadow: 0 0 50px rgba(255,0,0,0.3), inset 0 0 50px rgba(255,0,0,0.1);
+        }
+        
+        .iphone-box.cheap {
+            background: linear-gradient(135deg, rgba(0,255,0,0.1), rgba(0,255,255,0.1));
+            box-shadow: 0 0 50px rgba(0,255,0,0.3), inset 0 0 50px rgba(0,255,255,0.1);
+        }
+        
+        @keyframes borderRotate {
+            0% { border-color: #ff00ff; }
+            33% { border-color: #00ffff; }
+            66% { border-color: #ffff00; }
+            100% { border-color: #ff00ff; }
+        }
+        
+        .iphone-icon {
+            font-size: 6rem;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite, spin 10s linear infinite;
+        }
+        
+        .iphone-label {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .iphone-price {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        .iphone-box.expensive .iphone-price {
+            color: #ff0040;
+            text-shadow: 0 0 50px rgba(255,0,64,0.8);
+            animation: shake 2s infinite;
+        }
+        
+        .iphone-box.cheap .iphone-price {
+            color: #00ff80;
+            text-shadow: 0 0 50px rgba(0,255,128,0.8);
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .vs-divider {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 2s linear infinite, bounce 1s infinite;
+        }
+        
+        /* 计算器 - 霓虹风格 */
+        .calculator {
+            background: rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,0,255,0.3);
+            border-radius: 32px;
+            padding: 50px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 50px rgba(255,0,255,0.2);
+        }
+        
+        .calc-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .calc-input {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .calc-field {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .calc-label {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+        }
+        
+        .calc-value {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #00ffff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .calc-slider {
+            width: 100%;
+            height: 15px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            outline: none;
+            -webkit-appearance: none;
+            margin-top: 20px;
+        }
+        
+        .calc-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffff00, #ff00ff);
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255,255,0,0.8);
+            animation: pulse-glow 1s infinite;
+        }
+        
+        .calc-result {
+            background: linear-gradient(135deg, rgba(0,255,128,0.15), rgba(0,255,255,0.15));
+            border: 3px solid rgba(0,255,128,0.5);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0,255,128,0.3);
+        }
+        
+        .calc-result-label {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+        }
+        
+        .calc-result-amount {
+            font-size: 6rem;
+            font-weight: 900;
+            color: #00ff80;
+            text-shadow: 0 0 60px rgba(0,255,128,0.8);
+            margin-bottom: 20px;
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .calc-result-equiv {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .calc-result-equiv span {
+            color: #ffff00;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+        
+        /* 第二屏：抽象倒计时 */
+        #screen2 {
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(255,0,255,0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 20%, rgba(0,255,255,0.15) 0%, transparent 40%);
+        }
+        
+        .urgency-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .urgency-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff0040, #ff00ff, #00ffff);
+            color: #fff;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            letter-spacing: 5px;
+            animation: urgencyPulse 0.8s ease-in-out infinite;
+            box-shadow: 0 0 50px rgba(255,0,64,0.6);
+        }
+        
+        @keyframes urgencyPulse {
+            0%, 100% { transform: scale(1) rotate(-3deg); box-shadow: 0 0 50px rgba(255,0,64,0.6); }
+            50% { transform: scale(1.15) rotate(3deg); box-shadow: 0 0 80px rgba(255,0,255,0.9); }
+        }
+        
+        .urgency-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        /* 倒计时 - 霓虹数字 */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .countdown-item {
+            background: rgba(0,0,0,0.6);
+            border: 2px solid rgba(255,0,255,0.3);
+            border-radius: 24px;
+            padding: 30px 35px;
+            text-align: center;
+            min-width: 100px;
+            box-shadow: 0 0 30px rgba(255,0,255,0.2);
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .countdown-num {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(180deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(255,0,255,0.5);
+            line-height: 1;
+            animation: glitch-skew 3s infinite;
+        }
+        
+        .countdown-label {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 15px;
+            font-weight: 700;
+        }
+        
+        /* 进度条 - 赛博朋克 */
+        .progress-section {
+            background: rgba(0,0,0,0.5);
+            border: 2px solid rgba(0,255,255,0.3);
+            border-radius: 32px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 0 40px rgba(0,255,255,0.2);
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .progress-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .progress-count {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #00ffff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            animation: glitch-skew 2s infinite;
+        }
+        
+        .progress-bar {
+            height: 25px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00);
+            border-radius: 15px;
+            transition: width 0.5s ease;
+            position: relative;
+            animation: progressShine 1s infinite;
+        }
+        
+        @keyframes progressShine {
+            0% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+            100% { filter: brightness(1); }
+        }
+        
+        .progress-users {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+        }
+        
+        .progress-users span {
+            color: #ffff00;
+            font-weight: 800;
+            font-size: 1.5rem;
+            animation: glitch-skew 2s infinite;
+        }
+        
+        /* 价格对比 - 霓虹卡片 */
+        .price-showdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .price-card {
+            background: rgba(0,0,0,0.5);
+            border: 3px solid transparent;
+            border-radius: 32px;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s;
+        }
+        
+        .price-card.now {
+            border-color: rgba(0,255,128,0.5);
+            box-shadow: 0 0 50px rgba(0,255,128,0.3);
+            animation: borderPulse 2s infinite;
+        }
+        
+        .price-card.later {
+            border-color: rgba(255,0,64,0.3);
+            opacity: 0.7;
+        }
+        
+        @keyframes borderPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(0,255,128,0.3); }
+            50% { box-shadow: 0 0 60px rgba(0,255,128,0.6); }
+        }
+        
+        .price-card-tag {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+        }
+        
+        .price-card.now .price-card-tag {
+            background: linear-gradient(90deg, #00ff80, #00ffff);
+            color: #000;
+            animation: bounce 1s infinite;
+        }
+        
+        .price-card.later .price-card-tag {
+            background: linear-gradient(90deg, #ff0040, #ff00ff);
+            color: #fff;
+        }
+        
+        .price-card-amount {
+            font-size: 6rem;
+            font-weight: 900;
+            margin: 30px 0;
+        }
+        
+        .price-card.now .price-card-amount {
+            color: #00ff80;
+            text-shadow: 0 0 50px rgba(0,255,128,0.8);
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .price-card.later .price-card-amount {
+            color: rgba(255,255,255,0.4);
+            text-decoration: line-through;
+        }
+        
+        .price-card-label {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        /* CTA按钮 - 霓虹发光 */
+        .cta-button {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+            background-size: 200% auto;
+            color: #000;
+            font-size: 1.8rem;
+            font-weight: 900;
+            padding: 30px;
+            border-radius: 60px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.4s;
+            box-shadow: 0 0 50px rgba(255,0,255,0.5);
+            cursor: pointer;
+            border: none;
+            letter-spacing: 5px;
+            animation: rainbow 3s linear infinite, bounce 2s infinite;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 0 80px rgba(0,255,255,0.8);
+        }
+        
+        /* 第三屏：抽象盲盒 */
+        #screen3 {
+            background:
+                radial-gradient(ellipse at 80% 20%, rgba(255,255,0,0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,0,255,0.15) 0%, transparent 40%);
+        }
+        
+        .lottery-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .lottery-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        /* 老虎机 - 赛博朋克 */
+        .slot-machine {
+            background: rgba(0,0,0,0.6);
+            border: 3px solid rgba(255,255,0,0.5);
+            border-radius: 40px;
+            padding: 60px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(255,255,0,0.3);
+        }
+        
+        .slot-display {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ffff00, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: glitch-skew 3s infinite;
+        }
+        
+        .slot-display.spinning {
+            animation: slotSpin 0.1s linear infinite;
+        }
+        
+        @keyframes slotSpin {
+            0% { transform: translateY(0) scale(1); filter: hue-rotate(0deg); }
+            50% { transform: translateY(-15px) scale(1.1); filter: hue-rotate(180deg); }
+            100% { transform: translateY(0) scale(1); filter: hue-rotate(360deg); }
+        }
+        
+        .lottery-btn {
+            background: linear-gradient(135deg, #ffff00, #ff00ff, #00ffff);
+            background-size: 200% auto;
+            color: #000;
+            font-size: 2rem;
+            font-weight: 900;
+            padding: 30px 100px;
+            border-radius: 60px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 0 50px rgba(255,255,0,0.5);
+            letter-spacing: 5px;
+            animation: rainbow 3s linear infinite;
+        }
+        
+        .lottery-btn:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 0 80px rgba(255,0,255,0.8);
+        }
+        
+        .lottery-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* 权益卡片 - 霓虹 */
+        .benefits-reveal {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 35px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .benefit-card.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .benefit-card:hover {
+            border-color: rgba(255,255,0,0.5);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255,255,0,0.3);
+        }
+        
+        .benefit-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        
+        .benefit-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .benefit-value {
+            font-size: 2rem;
+            background: linear-gradient(90deg, #00ff80, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        
+        /* 第四屏：联系方式 - 抽象风格 */
+        #screen4 {
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(0,255,255,0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,0,255,0.15) 0%, transparent 40%);
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .contact-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        .contact-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* 联系方式卡片 - 霓虹 */
+        .contact-card {
+            background: rgba(0,0,0,0.6);
+            border: 3px solid rgba(0,255,255,0.3);
+            border-radius: 40px;
+            padding: 60px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(0,255,255,0.2);
+            animation: pulse-glow 3s infinite;
+        }
+        
+        .contact-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border: 5px solid rgba(255,255,255,0.2);
+            animation: spin 10s linear infinite, pulse-glow 2s infinite;
+        }
+        
+        .contact-name {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-class {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+        }
+        
+        .contact-wechat {
+            background: linear-gradient(135deg, rgba(0,255,128,0.1), rgba(0,255,255,0.1));
+            border: 2px solid rgba(0,255,128,0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .wechat-label {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 15px;
+        }
+        
+        .wechat-id {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #00ff80;
+            text-shadow: 0 0 30px rgba(0,255,128,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: glitch-skew 3s infinite;
+        }
+        
+        .wechat-id:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 50px rgba(0,255,128,0.8);
+        }
+        
+        .contact-qr {
+            width: 250px;
+            height: 250px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 24px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 1.2rem;
+            border: 3px dashed rgba(255,255,255,0.2);
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .contact-hint {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 20px;
+        }
+        
+        /* 社交分享按钮 */
+        .share-section {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .share-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 20px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .share-btn:hover {
+            background: rgba(255,0,255,0.2);
+            border-color: rgba(255,0,255,0.5);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255,0,255,0.3);
+        }
+        
+        .share-btn.primary {
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            color: #000;
+            border: none;
+            animation: rainbow 3s linear infinite;
+        }
+        
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 60px;
+            color: rgba(255,255,255,0.4);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+        }
+        
+        /* 滚动浮现动画 */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(80px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* 音乐播放器 */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .music-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 0 30px rgba(255,0,255,0.5);
+            transition: all 0.3s;
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(0,255,255,0.8);
+        }
+        
+        .music-btn.playing {
+            animation: spin 3s linear infinite, pulse-glow 2s infinite;
+        }
+        
+        .music-wave {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            height: 30px;
+        }
+        
+        .music-wave span {
+            width: 4px;
+            background: linear-gradient(180deg, #ff00ff, #00ffff);
+            border-radius: 2px;
+            animation: wave 1s ease-in-out infinite;
+        }
+        
+        .music-wave span:nth-child(1) { height: 10px; animation-delay: 0s; }
+        .music-wave span:nth-child(2) { height: 20px; animation-delay: 0.1s; }
+        .music-wave span:nth-child(3) { height: 15px; animation-delay: 0.2s; }
+        .music-wave span:nth-child(4) { height: 25px; animation-delay: 0.3s; }
+        .music-wave span:nth-child(5) { height: 12px; animation-delay: 0.4s; }
+        
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.5); }
+        }
+        
+        .music-wave.paused span {
+            animation-play-state: paused;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 1024px) {
+            .screen {
+                padding: 100px 40px 80px;
+            }
+            
+            .iphone-compare {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .vs-divider {
+                transform: rotate(90deg);
+            }
+            
+            .countdown {
+                gap: 15px;
+            }
+            
+            .countdown-item {
+                padding: 20px 25px;
+                min-width: 70px;
+            }
+            
+            .countdown-num {
+                font-size: 3rem;
+            }
+            
+            .price-showdown {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                padding: 20px 30px;
+            }
+            
+            .screen {
+                padding: 80px 25px 60px;
+            }
+            
+            .main-title {
+                font-size: 2.2rem;
+            }
+            
+            .iphone-price {
+                font-size: 3rem;
+            }
+            
+            .calc-result-amount {
+                font-size: 3.5rem;
+            }
+            
+            .urgency-title {
+                font-size: 2rem;
+            }
+            
+            .lottery-title {
+                font-size: 2.5rem;
+            }
+            
+            .slot-display {
+                font-size: 3rem;
+            }
+            
+            .contact-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-card {
+                padding: 40px 30px;
+            }
+            
+            .wechat-id {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-effects"></div>
+    <div class="bg-scanline"></div>
+    <div class="bg-particles" id="bgParticles"></div>
+    
+    <nav class="nav">
+        <div class="nav-logo">🔥 中国移动 · 校园卡</div>
+    </nav>
+    
+    <!-- 第一屏：抽象iPhone对比 -->
+    <section class="screen" id="screen1">
+        <div class="container">
+            <div class="hero-badge">⚡ 成都校区专属 ⚡</div>
+            <h1 class="main-title glitch" data-text="四年话费 = 一部iPhone？">
+                四年话费 = <span class="rainbow-text">一部iPhone</span>？<br>
+                还是 = <span class="rainbow-text">省下一部iPhone</span>？
+            </h1>
+            
+            <div class="iphone-compare">
+                <div class="iphone-box expensive">
+                    <div class="iphone-icon">📱</div>
+                    <div class="iphone-label">普通套餐四年</div>
+                    <div class="iphone-price">¥1,872+</div>
+                    <div class="iphone-desc">39元/月 × 48个月</div>
+                </div>
+                <div class="vs-divider bounce">VS</div>
+                <div class="iphone-box cheap">
+                    <div class="iphone-icon">💚</div>
+                    <div class="iphone-label">移动校园卡四年</div>
+                    <div class="iphone-price">¥1,440</div>
+                    <div class="iphone-desc">30元/月 × 48个月<br>570GB超大流量</div>
+                </div>
+            </div>
+            
+            <div class="calculator">
+                <div class="calc-title rainbow-text">💰 算一算你能省多少</div>
+                <div class="calc-input">
+                    <div class="calc-field">
+                        <div class="calc-label">你现在每月话费</div>
+                        <div class="calc-value" id="calcFee">39元</div>
+                        <input type="range" class="calc-slider" min="19" max="199" value="39" id="feeSlider" oninput="updateCalc()">
+                    </div>
+                    <div class="calc-field">
+                        <div class="calc-label">使用时长</div>
+                        <div class="calc-value" id="calcYear">4年</div>
+                        <input type="range" class="calc-slider" min="1" max="4" value="4" id="yearSlider" oninput="updateCalc()">
+                    </div>
+                </div>
+                <div class="calc-result">
+                    <div class="calc-result-label">四年下来，你将省下</div>
+                    <div class="calc-result-amount" id="calcSavings">¥432</div>
+                    <div class="calc-result-equiv">= <span id="milkTea">43</span>杯奶茶 = <span id="movie">14</span>场电影 = <span id="iphone">0.5</span>部iPhone</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 第二屏：抽象倒计时 -->
+    <section class="screen" id="screen2">
+        <div class="container">
+            <div class="urgency-header">
+                <div class="urgency-badge">⏰ 限时绿色通道 ⏰</div>
+                <h2 class="urgency-title glitch" data-text="距离涨价还有">距离涨价还有</h2>
+                <p class="urgency-subtitle">现在办理30元/月锁定四年，明年涨至39元/月</p>
+            </div>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-num" id="countdownDays">15</div>
+                    <div class="countdown-label">天</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-num" id="countdownHours">08</div>
+                    <div class="countdown-label">小时</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-num" id="countdownMinutes">42</div>
+                    <div class="countdown-label">分钟</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-num" id="countdownSeconds">36</div>
+                    <div class="countdown-label">秒</div>
+                </div>
+            </div>
+            
+            <div class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">👥 已有同学锁定低价</div>
+                    <div class="progress-count" id="progressCount">1,247</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 62%"></div>
+                </div>
+                <div class="progress-users">目标 <span>2,000</span> 人，还剩 <span id="progressLeft">753</span> 个名额</div>
+            </div>
+            
+            <div class="price-showdown">
+                <div class="price-card now">
+                    <div class="price-card-tag">✅ 现在办理</div>
+                    <div class="price-card-amount">¥30</div>
+                    <div class="price-card-label">/月 · 四年不涨价</div>
+                </div>
+                <div class="price-card later">
+                    <div class="price-card-tag">❌ 明年办理</div>
+                    <div class="price-card-amount">¥39</div>
+                    <div class="price-card-label">/月 · 涨价30%</div>
+                </div>
+            </div>
+            
+            <button class="cta-button" onclick="scrollToLottery()">🎯 立即锁定低价 🎯</button>
+        </div>
+    </section>
+    
+    <!-- 第三屏：抽象盲盒 -->
+    <section class="screen" id="screen3">
+        <div class="container">
+            <div class="lottery-header">
+                <h2 class="lottery-title glitch" data-text="🎁 每月权益盲盒抽奖">🎁 每月权益 <span class="rainbow-text">盲盒抽奖</span></h2>
+                <p class="lottery-subtitle">点击按钮，看看你能抽到哪些超值权益</p>
+            </div>
+            
+            <div class="slot-machine">
+                <div class="slot-display" id="slotDisplay">❓ 点击抽奖</div>
+                <button class="lottery-btn" id="lotteryBtn" onclick="startLottery()">🎲 开始抽奖</button>
+            </div>
+            
+            <div class="benefits-reveal" id="benefitsReveal">
+                <div class="benefit-card" data-delay="0">
+                    <div class="benefit-icon">📺</div>
+                    <div class="benefit-name">爱奇艺会员</div>
+                    <div class="benefit-value">¥25/月</div>
+                </div>
+                <div class="benefit-card" data-delay="1">
+                    <div class="benefit-icon">📱</div>
+                    <div class="benefit-name">B站大会员</div>
+                    <div class="benefit-value">¥25/月</div>
+                </div>
+                <div class="benefit-card" data-delay="2">
+                    <div class="benefit-icon">🎵</div>
+                    <div class="benefit-name">网易云音乐</div>
+                    <div class="benefit-value">¥18/月</div>
+                </div>
+                <div class="benefit-card" data-delay="3">
+                    <div class="benefit-icon">🎬</div>
+                    <div class="benefit-name">腾讯视频</div>
+                    <div class="benefit-value">¥30/月</div>
+                </div>
+                <div class="benefit-card" data-delay="4">
+                    <div class="benefit-icon">☁️</div>
+                    <div class="benefit-name">百度网盘</div>
+                    <div class="benefit-value">¥20/月</div>
+                </div>
+                <div class="benefit-card" data-delay="5">
+                    <div class="benefit-icon">📚</div>
+                    <div class="benefit-name">WPS会员</div>
+                    <div class="benefit-value">¥15/月</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 第四屏：联系方式 -->
+    <section class="screen" id="screen4">
+        <div class="container">
+            <div class="contact-header">
+                <h2 class="contact-title glitch" data-text="📞 联系我办理">📞 <span class="rainbow-text">联系我办理</span></h2>
+                <p class="contact-subtitle">扫码添加微信，立即锁定低价</p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-avatar">👤</div>
+                <div class="contact-name">光之助 (EVOL)</div>
+                <div class="contact-class">计算机学院2025级</div>
+                
+                <div class="contact-wechat">
+                    <div class="wechat-label">微信号（点击复制）</div>
+                    <div class="wechat-id" onclick="copyWechat()" id="wechatId">A19889279846Z</div>
+                </div>
+                
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 1.2rem; color: rgba(255,255,255,0.7); margin-bottom: 15px;">💬 点击复制微信号</div>
+                    <div style="font-size: 2.5rem; color: #00ff80; font-weight: 900; text-shadow: 0 0 30px rgba(0,255,128,0.6); animation: glitch-skew 3s infinite; cursor: pointer;" onclick="copyWechat()">A19889279846Z</div>
+                </div>
+                <div class="contact-hint">扫码添加，咨询办理</div>
+            </div>
+            
+            <div class="share-section">
+                <button class="share-btn" onclick="generatePoster()">🎨 生成海报</button>
+                <button class="share-btn primary" onclick="sharePage()">📤 分享给好友</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>🔥 中国移动校园卡 · 成都校区专属 · 限时绿色通道 🔥</p>
+    </footer>
+    
+    <!-- 音乐播放器 -->
+    <div class="music-player">
+        <div class="music-wave paused" id="musicWave">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <button class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</button>
+    </div>
+    
+    <audio id="bgm" loop preload="auto">
+        <source src="../bgm.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        // 生成粒子
+        function createParticles() {
+            const container = document.getElementById('bgParticles');
+            const colors = ['rgba(255,0,255,0.8)', 'rgba(0,255,255,0.8)', 'rgba(255,255,0,0.8)', 'rgba(0,255,128,0.8)'];
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (8 + Math.random() * 8) + 's';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.boxShadow = `0 0 15px ${particle.style.background}`;
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+        
+        // 计算器
+        function updateCalc() {
+            const fee = parseInt(document.getElementById('feeSlider').value);
+            const year = parseInt(document.getElementById('yearSlider').value);
+            
+            document.getElementById('calcFee').textContent = fee + '元';
+            document.getElementById('calcYear').textContent = year + '年';
+            
+            const currentTotal = fee * 12 * year;
+            const mobileTotal = 30 * 12 * year;
+            const savings = currentTotal - mobileTotal;
+            
+            document.getElementById('calcSavings').textContent = '¥' + savings.toLocaleString();
+            document.getElementById('milkTea').textContent = Math.floor(savings / 10);
+            document.getElementById('movie').textContent = Math.floor(savings / 30);
+            document.getElementById('iphone').textContent = (savings / 5000).toFixed(1);
+        }
+        
+        // 倒计时
+        function updateCountdown() {
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 15);
+            
+            setInterval(() => {
+                const now = new Date();
+                const diff = endDate - now;
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdownDays').textContent = String(days).padStart(2, '0');
+                document.getElementById('countdownHours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('countdownMinutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('countdownSeconds').textContent = String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+        updateCountdown();
+        
+        // 进度条动画
+        function animateProgress() {
+            const target = 1247;
+            const max = 2000;
+            const current = document.getElementById('progressCount');
+            let count = 1100;
+            
+            setInterval(() => {
+                if (count < target) {
+                    count += Math.floor(Math.random() * 3);
+                    current.textContent = count.toLocaleString();
+                    document.getElementById('progressFill').style.width = (count / max * 100) + '%';
+                    document.getElementById('progressLeft').textContent = (max - count).toLocaleString();
+                }
+            }, 3000);
+        }
+        animateProgress();
+        
+        // 盲盒抽奖
+        const benefits = [
+            { icon: '📺', name: '爱奇艺会员', value: '¥25/月' },
+            { icon: '📱', name: 'B站大会员', value: '¥25/月' },
+            { icon: '🎵', name: '网易云音乐', value: '¥18/月' },
+            { icon: '🎬', name: '腾讯视频', value: '¥30/月' },
+            { icon: '☁️', name: '百度网盘', value: '¥20/月' },
+            { icon: '📚', name: 'WPS会员', value: '¥15/月' },
+            { icon: '🎮', name: 'QQ音乐', value: '¥15/月' },
+            { icon: '📖', name: '知乎盐选', value: '¥19/月' }
+        ];
+        
+        function startLottery() {
+            const btn = document.getElementById('lotteryBtn');
+            const display = document.getElementById('slotDisplay');
+            const cards = document.querySelectorAll('.benefit-card');
+            
+            btn.disabled = true;
+            btn.textContent = '🎰 抽奖中...';
+            display.classList.add('spinning');
+            
+            cards.forEach(card => card.classList.remove('revealed'));
+            
+            let spins = 0;
+            const spinInterval = setInterval(() => {
+                const random = benefits[Math.floor(Math.random() * benefits.length)];
+                display.textContent = random.icon + ' ' + random.name;
+                spins++;
+                
+                if (spins > 25) {
+                    clearInterval(spinInterval);
+                    display.classList.remove('spinning');
+                    display.textContent = '🎉 恭喜获得全部权益！';
+                    btn.textContent = '✅ 已揭晓';
+                    
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('revealed');
+                        }, index * 150);
+                    });
+                }
+            }, 80);
+        }
+        
+        // 滚动到抽奖
+        function scrollToLottery() {
+            document.getElementById('screen3').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // 复制微信号
+        function copyWechat() {
+            const wechatId = document.getElementById('wechatId').textContent;
+            if (wechatId.includes('【')) {
+                alert('请先替换为真实微信号');
+                return;
+            }
+            navigator.clipboard.writeText(wechatId).then(() => {
+                alert('微信号已复制：' + wechatId);
+            });
+        }
+        
+        // 生成海报
+        function generatePoster() {
+            const fee = parseInt(document.getElementById('feeSlider').value);
+            const year = parseInt(document.getElementById('yearSlider').value);
+            const savings = (fee - 30) * 12 * year;
+            
+            const text = `我用中国移动校园卡${year}年能省¥${savings.toLocaleString()}！\n相当于${Math.floor(savings/10)}杯奶茶，你也来算算？\n\n联系光之助办理：A19889279846Z`;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                alert('海报文案已复制！快去发朋友圈吧\n\n' + text);
+            });
+        }
+        
+        // 分享页面
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '四年话费 = 一部iPhone？',
+                    text: '算一算你能省多少！',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('链接已复制！');
+                });
+            }
+        }
+        
+        // 初始化
+        updateCalc();
+        
+        // 滚动浮现动画
+        function initRevealAnimations() {
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            // 为所有需要动画的元素添加类
+            const elements = document.querySelectorAll('.hero-badge, .main-title, .iphone-box, .vs-divider, .calculator, .calc-title, .calc-input, .calc-result, .urgency-badge, .urgency-title, .urgency-subtitle, .countdown-item, .progress-section, .price-card, .cta-button, .lottery-header, .slot-machine, .benefit-card, .contact-header, .contact-card, .share-section');
+            
+            elements.forEach((el, index) => {
+                // 根据位置添加不同的动画类
+                if (index % 3 === 0) {
+                    el.classList.add('reveal');
+                } else if (index % 3 === 1) {
+                    el.classList.add('reveal-left');
+                } else {
+                    el.classList.add('reveal-right');
+                }
+                
+                // 添加延迟
+                el.style.transitionDelay = (index * 0.05) + 's';
+                observer.observe(el);
+            });
+        }
+        
+        // 音乐播放控制
+        let isPlaying = false;
+        const bgm = document.getElementById('bgm');
+        const musicBtn = document.getElementById('musicBtn');
+        const musicWave = document.getElementById('musicWave');
+        
+        function toggleMusic() {
+            if (isPlaying) {
+                bgm.pause();
+                musicBtn.textContent = '🎵';
+                musicBtn.classList.remove('playing');
+                musicWave.classList.add('paused');
+                isPlaying = false;
+            } else {
+                bgm.play().catch(e => {
+                    console.log('音频播放失败:', e);
+                    alert('点击页面任意位置后，再点击音乐按钮播放');
+                });
+                musicBtn.textContent = '⏸';
+                musicBtn.classList.add('playing');
+                musicWave.classList.remove('paused');
+                isPlaying = true;
+            }
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            initRevealAnimations();
+            
+            // 添加点击事件来解锁音频（某些浏览器需要）
+            document.addEventListener('click', () => {
+                if (bgm.paused && !isPlaying) {
+                    // 预加载音频
+                    bgm.load();
+                }
+            }, { once: true });
+        });
+    </script>
+</body>
+</html>
